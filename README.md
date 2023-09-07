@@ -42,7 +42,7 @@
 
 ## 📌 주요 기능
 
-##### 북유럽 커뮤니티 [상세보기-WIKI이동]<https://github.com/tnfladl9926/Bookbbang-spring/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EB%B6%81%EC%9C%A0%EB%9F%BD-%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0)>
+##### 북유럽 커뮤니티 [상세보기-WIKI이동](https://github.com/tnfladl9926/Bookbbang-spring/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EB%B6%81%EC%9C%A0%EB%9F%BD-%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0))
   - 게시글 CRUD
   - 댓글 CRUD
 
