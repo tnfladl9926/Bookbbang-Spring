@@ -49,10 +49,10 @@
 ##### 북유럽 마이페이지 [상세보기-WIKI이동](https://github.com/tnfladl9926/Bookbbang-spring/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EB%B6%81%EC%9C%A0%EB%9F%BD-%EB%A7%88%EC%9D%B4%ED%8E%98%EC%9D%B4%EC%A7%80))
   - 북유럽 활동 조회
 
-##### 매장 안내
+##### 매장 안내 [상세보기-WIKI이동](https://github.com/tnfladl9926/Bookbbang-spring/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EB%A7%A4%EC%9E%A5-%EC%95%88%EB%82%B4))
   - 카카오 지도 API 사용
 
-##### 도서 구매
+##### 도서 구매 [상세보기-WIKI이동]()
   - 도서 선택
   - 장바구니
   - 배송지 입력
@@ -60,5 +60,5 @@
   - 결제
   - 구매 완료
 
-##### 메인페이지
+##### 메인페이지 [상세보기-WIKI이동]()
   - 분야별 신작, 베스트 셀러 등 조회
