@@ -1,5 +1,5 @@
 # Spring Project - BookBBang
-스프링
+JAVA와 스프링 MVC를 기반으로 구현한 프로젝트입니다.
 <br/>
 
 ## 🖥 프로젝트 소개
