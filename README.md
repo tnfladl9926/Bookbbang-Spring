@@ -36,7 +36,7 @@ JAVA와 스프링 MVC를 기반으로 구현한 프로젝트입니다.
 </br>
 
 ## :keyboard:DB 설계
-
+![bberd](https://github.com/tnfladl9926/Bookbbang-Spring/assets/134984241/1d63244f-f092-4164-acb5-3b157649a52e)
 
 </br>
 
