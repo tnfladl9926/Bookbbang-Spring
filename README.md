@@ -1,9 +1,9 @@
 # Spring Project - BookBBang
-JAVA와 스프링 MVC를 기반으로 구현한 프로젝트입니다.
+JAVA와 스프링 MVC를 기반으로 구현한 프로젝트입니다.  
 <br/>
 
 ## 🖥 프로젝트 소개
-도서 구매, 도서 중고거래, 책 서평 커뮤니티, 오프라인 매장 소개 등의 기능을 제공하는 통합 도서 서비스 플랫폼입니다.
+도서 구매, 도서 중고거래, 책 서평 커뮤니티, 오프라인 매장 소개 등의 기능을 제공하는 통합 도서 서비스 플랫폼입니다.  
 <br/>
 
 
@@ -18,27 +18,25 @@ JAVA와 스프링 MVC를 기반으로 구현한 프로젝트입니다.
  - 김재욱: 북유럽 서평 CRUD
  - 최재현: 도서 중고거래, 웹소켓 대화방
  - 유동현: 회원가입, 도서 주문, 결제, 공지사항 CRUD
- - 김지우: 도서 상세보기, 이벤트, 쿠폰 다운로드
+ - 김지우: 도서 상세보기, 이벤트, 쿠폰 다운로드  
+<br/>
   
 ## ⚙ 개발 환경
-* `Java 8`
+* `Java 11`
 * `JDK 1.8.0`
 - **IDE** : STS3
-- **Database** : Oracle DB(11xe), MyBatis
-
+- **Database** : Oracle DB(11xe), MyBatis  
+<br/>
 
 ### ✔️Frond-end
 <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=HTML5&logoColor=white"> <img src="https://img.shields.io/badge/Css-1572B6?style=for-the-badge&logo=Css3&logoColor=white"> <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white"> <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white"> <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white">
 ### ✔️Back-end
-<img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"> <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white">
-</br>
-
-</br>
+<img src="https://img.shields.io/badge/JAVA-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"> <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white">  
+<br/>
 
 ## :keyboard:DB 설계
-![bberd](https://github.com/tnfladl9926/Bookbbang-Spring/assets/134984241/1d63244f-f092-4164-acb5-3b157649a52e)
-
-</br>
+![bberd](https://github.com/tnfladl9926/Bookbbang-Spring/assets/134984241/1d63244f-f092-4164-acb5-3b157649a52e)  
+<br/>
 
 ## 📌 주요 기능
 
