@@ -1,0 +1,85 @@
+
+.bookListAll {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.quHeader {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.tblQuestion {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-collapse: separate;
+}
+
+.tblQ th {
+    width: 150px;
+    padding: 15px;
+    text-align-last: center;    
+    border-right: 1px solid #eaeaea;
+}
+
+.tblQ td {
+    padding: 10px;
+}
+
+.tblQuestion tr {
+    border-bottom: 1px solid #a48a5a;
+}
+.tblQuestion tr:last-child {
+    border-bottom: 0px;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 2px;
+    width: 80px;
+    border: 1px solid #a48a5a;
+    color: #333;
+    font-size: 16px;
+    border-radius: 4px;
+    /* cursor: pointer; */
+}
+
+.btns {
+    align-self: center;
+}
+
+.bookListAll {
+    margin-bottom: 50px;
+}
+
+
+.quHeader {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.qButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bookPaging {
+    display: flex;
+    justify-content: center;
+}
+
+.bookPaging button {
+    font-size: 13px;
+}
+
+.tblQ {
+    margin-bottom: 30px;
+}
+
+
+.tblQ textarea {
+    height: 250px;
+}

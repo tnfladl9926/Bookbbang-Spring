@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.bbang.mapper.NoticeMapper">
+
+	<select id="noticelist" resultType="com.team.bbang.domain.NoticeDTO">
+		select b.* from (select a.*,rownum as rnum from (select noticeseq,title,to_char(regdate,'yyyy-mm-dd') as regdate, viewcnt from notice order by regdate desc) a) b
+	</select>
+	
+	
+	<select id="noticedetail" resultType="com.team.bbang.domain.NoticeDTO">
+		select noticeseq,title,content,to_char(regdate,'yyyy-mm-dd') as regdate, viewcnt from notice where noticeseq=#{noticeeseq}
+	</select>
+	
+	<insert id="noticeinsert">
+		insert into notice values (noticeseq.nextVal, #{title},#{content}, sysdate, #{memberseq}, default)
+	</insert>
+	
+	<update id="noticeviewcnt">
+		update notice set viewcnt = viewcnt + 1 WHERE noticeseq = #{noticeseq} 
+	</update>
+	
+	<delete id="noticedelete">
+		delete from notice where noticeseq=#{noticeseq}
+	</delete>
+	
+</mapper>

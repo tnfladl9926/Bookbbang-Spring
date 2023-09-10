@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.bbang.mapper.BulMentionMapper">
+	<!-- <select id="getList" resultType=""> select bm.*, (select nickname from 
+		member where memberseq = bm.memberseq) as nickname, b.title as btitle, b.image 
+		as bimage, b.writer as bwriter from bookmention bm inner join book b on b.bookseq 
+		= bm.bookseq </select> -->
+
+
+	<select id="getBoardList"
+		resultType="com.team.bbang.domain.BulMentionDTO" parameterType="String">
+
+		select 
+			a.bookMentionSeq as bookMentionSeq, 
+			a.title as title, 
+			a.content as content,
+			a.regdate as regdate,
+			a.likeCount as likeCount,
+			a.memberSeq as memberSeq,
+			a.bookSeq as bookSeq, 
+			a.btitle as btitle, 
+			a.bwriter as bwriter,
+			a.bimage as bimage,
+			a.nickname as nickname, 
+			rownum as r
+		from (select 
+				(select nickname 
+					from member m 
+						where m.memberseq = bm.memberseq) as nickname,
+				rownum as r, 
+				bm.*,
+				b.title as btitle,
+				b.image as bimage, 
+				b.writer as bwriter 
+			  from bookmention bm
+				inner join book b
+					on b.bookseq = bm.bookseq
+						where 
+						<if
+							test="searchType == 'title' and keyword != null and keyword != '' ">
+							bm.title like <![CDATA['%']]> || '#{keyword}' || <![CDATA['%']]>  and
+						</if>
+						<if
+							test="searchType == 'content' and keyword != null and keyword != '' ">
+							bm.content like <![CDATA['%']]> || #{keyword} || <![CDATA['%']]> and
+						</if>
+						<if
+							test="searchType=='nickname' and keyword != null and keyword != '' ">
+							nickname like <![CDATA['%']]> || #{keyword} || <![CDATA['%']]> and
+						</if>
+						
+						 rownum  &lt;= #{endList}) a
+							where r &gt; #{startList} 
+								
+							
+								
+						
+
+
+	</select>
+
+
+	<select id="getBoardListCnt" resultType="Integer">
+		select count(bookMentionSeq) as listCnt from bookMention 
+				<if	test="searchType == 'title'">
+				    WHERE TITLE LIKE <![CDATA['%']]> || #{keyword} || <![CDATA['%']]>
+				</if>
+				
+				<if test="searchType == 'content'">
+				    WHERE CONTENT LIKE <![CDATA['%']]> || #{keyword}|| <![CDATA['%']]>
+				</if>
+	</select>
+
+	<select id="getBoardListCnt2" resultType="Integer">
+		    select count(*) as listCnt from
+                            (select 
+                            (SELECT NICKNAME FROM MEMBER WHERE MEMBERSEQ = B.MEMBERSEQ) as nickname
+                            from bookMention b) a
+                            where a.nickname like <![CDATA['%']]> || #{keyword} || <![CDATA['%']]>
+		
+	</select>
+
+
+	<select id="getBulImage"
+		resultType="com.team.bbang.domain.BulMentionDTO">
+		SELECT bimage, likeCount, bookMentionSeq
+			FROM (
+			    SELECT bimage, likeCount, bookMentionSeq
+			    FROM (
+			        SELECT b.image AS bimage, bm.likeCount AS likeCount, bm.bookMentionSeq AS bookMentionSeq,
+			        ROW_NUMBER() OVER (PARTITION BY b.image ORDER BY bm.likeCount DESC) AS rn
+			        FROM bookMention bm
+			        INNER JOIN book b ON bm.bookSeq = b.bookSeq
+			        ORDER BY bm.likeCount DESC
+			    )
+			    WHERE rn = 1
+			)
+		WHERE ROWNUM <![CDATA[<=]]> 20
+	</select>
+
+
+
+	<select id="getDetail"
+		resultType="com.team.bbang.domain.BulMentionDTO">
+		select
+		bm.bookMentionSeq as bookMentionSeq, bm.title as title, bm.regdate as regdate,
+		bm.viewCount as viewCount,
+		bm.likeCount as likeCount, bm.content as content,
+		b.title as btitle, b.writer as bwriter, m.name as name
+		from bookmention bm
+		inner join book b
+		on bm.bookSeq = b.bookSeq
+		inner join member m
+		on bm.memberSeq = m.memberSeq
+		where bookMentionSeq = #{bookMentionSeq}
+	</select>
+
+
+
+</mapper>

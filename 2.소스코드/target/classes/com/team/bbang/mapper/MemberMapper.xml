@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.bbang.mapper.MemberMapper">
+
+	<resultMap type="com.team.bbang.domain.MemberDTO" id="info">
+		<id property="memberseq" column="memberseq" />
+
+		<result property="memberseq" column="memberseq" />
+		<result property="id" column="id" />
+		<result property="pw" column="pw" />
+		<result property="nickname" column="nickname" />
+		<result property="name" column="name" />
+		<result property="tel" column="tel" />
+		<result property="address" column="address" />
+		<result property="birth" column="birth" />
+		<result property="email" column="email" />
+		<collection property="roleList" resultMap="roleList" />
+
+	</resultMap>
+
+
+	<resultMap type="com.team.bbang.domain.RoleDTO" id="roleList">
+		<result property="memberseq" column="memberseq" />
+		<result property="authority" column="authority" />
+	</resultMap>
+
+	<select id="login" resultMap="info">
+		SELECT *
+		FROM member m
+		inner join
+		role r
+		on m.memberseq = r.memberseq
+		where m.id =
+		#{id}
+	</select>
+
+	<insert id="register">
+		insert into member values (memberseq.nextVal, #{id},
+		#{pw}, #{nickname}, #{name}, #{tel}, #{address}, #{birth}, #{email})
+	</insert>
+
+
+	<select id="idcheck" resultType="Integer">
+		select count(*) as cnt from
+		member where id= #{id}
+	</select>
+
+	<select id="nickcheck" resultType="Integer">
+		select count(*) as cnt from
+		member where nickname= #{nickname}
+	</select>
+
+	<select id="registerrole">
+		insert into role values (roleseq.nextVal, (select
+		max(memberseq) from
+		member) ,'ROLE_MEMBER')
+	</select>
+
+	<select id="myInfo" resultType="com.team.bbang.domain.MemberDTO">
+
+		select * from member where id =
+		#{pname}
+
+	</select>
+
+	<update id="updateInfo">
+
+		update member set pw = #{newPw} where id = #{pname}
+
+	</update>
+
+	<select id="mycart" resultType="Integer">
+
+		select count(*) count from cart c
+		inner join book b
+		on c.bookseq = b.bookseq
+		inner join member m
+		on
+		m.memberseq = c.memberseq
+		where id = #{pname}
+
+	</select>
+
+	<select id="myname" resultType="String">
+		select name from member
+		where id =
+		#{pname}
+	</select>
+
+	<resultMap type="com.team.bbang.domain.DeliveryDTO"
+		id="mydelivery">
+		<id property="deliveryseq" column="delivertseq" />
+		<result property="addressaname" column="addressaname" />
+		<result property="address" column="address" />
+		<result property="membername" column="membername" />
+		<result property="phonenumber" column="phonenumber" />
+		<result property="memberseq" column="memberseq" />
+	</resultMap>
+
+	<insert id="mydeliinsert">
+		insert into delivery (deliveryseq, addressaname,
+		address, membername,
+		phonenumber, memberseq) values
+		(deliveryseq.nextval, #{addressaname},
+		#{address}, #{membername},
+		#{phonenumber}, #{memberseq});
+
+	</insert>
+
+	<select id="getaddress"
+		resultType="com.team.bbang.domain.DeliveryDTO">
+
+		select * from delivery d
+		inner join member m
+		on d.memberseq =
+		m.memberseq
+		where m.id = #{pname}
+
+	</select>
+
+	<select id="mycoupon" resultType="Integer">
+
+		select count(*) as count from
+		membercoupon m
+		inner join member me
+		on
+		me.memberseq = m.memberseq
+		where
+		me.id = #{pname}
+
+	</select>
+
+	<insert id="addDel">
+		<selectKey keyProperty="deliveryseq" order="BEFORE"
+			resultType="String">
+			select deliveryseq.nextval from dual
+		</selectKey>
+
+		insert into delivery
+		(deliveryseq, addressaname, address, membername,
+		phonenumber, memberseq)
+		values
+		(#{deliveryseq}, #{addressaname},
+		#{address}, #{membername}, #{phonenumber},
+		#{memberseq})
+
+	</insert>
+
+	<select id="getDel"
+		resultType="com.team.bbang.domain.DeliveryDTO">
+		select * from delivery where deliveryseq = #{seq}
+	</select>
+
+	<select id="getpay" resultType="com.team.bbang.domain.MemberDTO">
+		select b.title as title,
+		b.inventory as inventory, b.price as price, b.image
+		as image,
+		p.checknumber as checknumber, p.regdate as regdate from
+		payment p
+		inner
+		join orderbook o
+		on p.paymentseq = o.paymentseq
+		inner join book b
+		on
+		b.bookseq = o.bookseq
+		inner join member m
+		on m.memberseq = p.memberseq
+		where m.id = #{pname}
+	</select>
+
+	<select id="delcount" resultType="Integer">
+		select count(*) as count from
+		delivery d
+		inner join member m
+		on d.memberseq = m.memberseq
+		where m.id =
+		#{pname}
+
+	</select>
+
+
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.bbang.mapper.PaymentMapper">
+
+	<select id="dlist" resultType="com.team.bbang.domain.DeliveryDTO">
+		select deliveryseq,addressaname,membername,phonenumber,address from delivery where memberseq=#{memberseq} order by deliveryseq
+	</select>
+	
+	
+	
+
+	<insert id="deliveryinsert">
+		insert into delivery values (deliveryseq.nextVal, #{addressaname}, #{address}, #{membername}, #{phonenumber} , #{memberseq})
+	</insert>
+	
+	<select id="deliveryinfo" resultType="com.team.bbang.domain.DeliveryDTO">
+		select membername,phonenumber,address from delivery where deliveryseq=#{deliveryseq}
+	</select>
+ 	
+ 	<select id="getCoupon" resultType="com.team.bbang.domain.CouponDTO">
+      select c.couponseq as couponseq, c.name as name, c.rate as rate, c.deadline as deadline, m.use as use from coupon c
+      inner join membercoupon m
+      on c.couponseq = m.couponseq
+      where memberseq = #{memberseq}
+   
+   </select>
+</mapper>

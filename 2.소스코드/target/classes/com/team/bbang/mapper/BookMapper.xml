@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.bbang.mapper.BookMapper">
+
+	<resultMap type="com.team.bbang.domain.BookDTO" id="bookmap">
+	      <id property="bookseq" column="bookseq"/>
+	      <result property="title" column="title"/>
+	      <result property="writer" column="writer"/>
+	      <result property="field" column="field"/>
+	      <result property="genre" column="genre"/>
+	      <result property="price" column="price"/>
+	      <result property="publisher" column="publisher"/>
+	      <result property="inventory" column="inventory"/>
+	      <result property="regdate" column="regdate"/>
+	      <result property="salesrate" column="salesrate"/>
+	      <result property="explain" column="explain"/>
+	      <result property="image" column="image"/>
+	   </resultMap>
+
+	<!-- 도서리스트 출력 -->
+	<select id="bookList" resultType="com.team.bbang.domain.BookDTO">
+		
+		select a.* FROM
+		(select 
+			rownum as rnum,
+			book.bookseq as bookseq, 
+			book.title as title,
+			book.writer as writer,
+			book.field as field,
+			book.genre as genre,
+			book.price as price,
+			book.publisher as publisher,
+			book.inventory as inventory,
+			book.regdate as regdate,
+			book.salesrate as salesrate,
+			book.explain as explain,
+			book.image as image
+			
+		from book
+        	where field = #{field}
+		<if test="genre != null">
+		and genre= #{genre}
+		</if>) a
+        	where rnum <![CDATA[>= #{startList}]]> and rnum <![CDATA[<= (${startList} + 9)]]> 
+		
+		<if test="order == 0">
+		order by bookseq
+		</if>
+		
+		<if test="order == 1">
+		order by salesrate desc
+		</if>
+		
+		<if test="order == 2">
+		order by regdate desc
+		</if>
+		
+		<if test="order == 3">
+		order by price asc
+		</if>
+		
+		<if test="order == 4">
+		order by price desc
+		</if>
+		
+	</select>
+	
+	
+	<!-- 도서사이드바 출력(X..?) -->
+	<select id="booknav" resultType="com.team.bbang.domain.BookDTO">
+		select distinct genre from book where field = #{field}
+	</select>
+	
+	<!-- 관리자 도서 등록 -->
+	<insert id="bookadd" parameterType="com.team.bbang.domain.BookDTO">
+	 INSERT INTO book (bookseq, title, writer, field, genre, price, publisher, inventory, regdate, salesrate, explain, image) VALUES 
+		(bookseq.nextVal, #{title}, #{writer}, #{field}, #{genre}, #{price}, #{publisher}, #{inventory}, #{regdate}, #{salesrate}, #{explain}, #{image})
+	</insert>
+	
+	<!-- 관리자 도서 리스트 출력 -->
+	<!-- 페이징하면 where 뒤 없애고 order by bookseq desc만 -->
+	<select id="booklistadmin" resultType="com.team.bbang.domain.BookDTO">
+		select * from book where bookseq between 1 and 20 order by bookseq desc
+	</select>
+	
+	<!-- 관리자 도서 상세정보 -->
+	<select id="bookdetailadmin" resultType="com.team.bbang.domain.BookDTO">
+		select * from book where bookseq = #{bookseq} 
+	</select>
+	
+	<!-- 관리자 도서 수정 -->
+	<update id="bookeditadminok" parameterType="com.team.bbang.domain.BookDTO">
+		UPDATE book
+			SET title = #{title},
+			    writer = #{writer},
+			    field = #{field},
+			    genre = #{genre},
+			    price = #{price},
+			    publisher = #{publisher},
+			    inventory = #{inventory},
+			    regdate = #{regdate},
+			    salesrate = #{salesrate},
+			    explain = #{explain}
+			WHERE bookseq = #{bookseq}
+	</update>
+	
+	<!-- Ajax로 genre 불러오기 -->
+	<select id="bookgenre" resultType="com.team.bbang.domain.BookDTO">
+		select distinct genre from book where field = #{field}
+	</select>
+	
+		<!-- 지우 도서 상세정보 -->
+	<select id="bookview" resultType="com.team.bbang.domain.BookDTO">
+		select * from book where bookseq = #{bookseq} 
+	</select>
+	
+	<!-- 베스트셀러 -->
+<!-- 	<select id="bestseller" resultType="com.team.bbang.domain.BookDTO"> -->
+<!-- 		SELECT * -->
+<!-- 			FROM ( -->
+<!-- 			  SELECT * -->
+<!-- 			  FROM book -->
+<!-- 			  ORDER BY salesrate DESC -->
+<!-- 			) -->
+<!-- 			WHERE ROWNUM <= 5; -->
+<!-- 	</select> -->
+	
+	<select id="getBookListCnt" resultType="int">
+		select count(bookSeq) as listCnt from book
+	</select>
+	
+	<!-- 도서 가격 출력  -->
+   <select id="getPrice" resultType="com.team.bbang.domain.BookDTO">
+      
+      select price from book where bookseq = #{bookseq}
+   
+   </select>
+   
+   <select id="getBook" resultType="com.team.bbang.domain.BookDTO">
+   
+      select title, image, price from book where bookseq = #{bookseq}
+   
+   </select>
+
+</mapper>

@@ -1,0 +1,111 @@
+
+.orderListAll {
+    width: 900px;
+    /* border: 1px solid gray; */
+}
+
+.orderHeader {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.orderCont {
+    width: 900px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.orderHead {
+    padding: 20px 10px;
+    border-bottom: 1px solid #ebebeb;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #444;
+    font-weight: bold;
+}
+
+.bookCont .bookInfo {
+    width: 340px;
+    padding-top: 40px;
+}
+
+.bookCont tbody td {
+    padding: 20px 0;
+    text-align: center;
+}
+
+.bookChk {
+    width: 40px;
+}
+
+.cartImg img {
+    width: 80px;
+}
+
+.bookCont .bookInfo {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    vertical-align: top;
+}
+
+.bookName {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.quantity {
+    font-size: 13px;
+}
+
+.sdgj {
+    font-size: 11px;
+    height: 18px;
+    padding: 0 4px;
+    border: 1px solid #d8d8d8;
+    color: #666;
+}
+
+.bookSale {
+    font-size: 12px;
+    color: #333;
+    margin-top: 5px;
+}
+
+.bookNum input[type=number] {
+    width: 36px;
+    display: block;
+    border: solid 1px #ebebeb;
+}
+
+.bookPayment {
+    width: 120px;
+}
+
+.orderStatement {
+    font-size: 13px;
+    color: #333;
+    width: 170px;
+}
+
+.bookShip {
+    width: 130px;
+    font-size: 14px;
+}
+
+.orderButton {
+    width: 120px;
+}
+
+.orderButton button {
+    font-size: 13px;
+}
+
+.notice {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 18px;
+    color: #595959;
+    font-size: 13px;
+}

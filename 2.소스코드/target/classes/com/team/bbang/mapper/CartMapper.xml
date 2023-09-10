@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.bbang.mapper.CartMapper">
+
+	<!-- 장바구니 출력 -->
+	<select id="getList" resultType="com.team.bbang.domain.CartDTO">
+		select c.cartseq, c.memberseq, c.bookseq, b.title, b.writer, b.price, b.image from cart c
+		    inner join member m
+		        on c.memberseq = m.memberseq
+		    inner join book b
+		        on c.bookseq = b.bookseq
+		            where c.memberseq = #{memberseq}
+	</select>
+	
+	<delete id="cartdel" parameterType="map">
+		delete from cart where memberseq = #{memberseq} and bookseq = #{bookseq}
+	</delete>
+	
+	<insert id="cartAdd" parameterType="com.team.bbang.domain.CartDTO">
+		insert into cart values (cartseq.nextVal, #{memberseq}, #{bookseq})
+	</insert>
+	
+</mapper>

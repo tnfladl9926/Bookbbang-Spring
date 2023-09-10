@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.bbang.mapper.EventMapper">
+
+	<select id="getList" resultType="com.team.bbang.domain.EventDTO">
+		SELECT 
+        e.eventseq, e.title, e.content, e.regdate,
+        (select deadline from coupon where couponseq = e.couponseq ) as deadline
+    FROM EVENT e
+	</select>
+	
+	<select id="view" resultType="com.team.bbang.domain.EventDTO">	
+		SELECT 
+			    e.eventseq, e.title, e.content, e.regdate, c.name, c.deadline, c.rate, c.couponseq
+			FROM EVENT e
+			LEFT JOIN COUPON c ON c.couponseq = e.couponseq
+		where eventseq = #{eventseq}
+	</select>
+	
+	<!-- <select id="popUp" resultType="com.team.bbang.domain.EventDTO">
+		SELECT 
+		
+		FROM EVENT
+	</select> -->
+	
+	<insert id="addcoupon" >
+		INSERT INTO MEMBERCOUPON VALUES(#{seq}, #{memberseq}, <![CDATA['n']]>)
+	</insert>
+
+</mapper>

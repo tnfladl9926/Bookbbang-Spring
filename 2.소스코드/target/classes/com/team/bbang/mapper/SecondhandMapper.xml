@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.bbang.mapper.SecondhandMapper">
+	<select id="getList" resultType="com.team.bbang.domain.SecondhandDTO">
+		SELECT 
+			s.secondhandseq,
+            s.title,
+            s.content,
+            s.memberseq,
+            TRUNC((sysdate - s.regdate) * 24) as regdate,
+            s.price,
+            s.status,
+            s.address,
+			(select nickname from member where memberseq =  s.memberseq) as nickname,
+            (select secondhandimg 
+            from SECONDHANDIMG 
+            where secondhandimgseq = 
+            (select min(secondhandimgseq) from secondhandimg where secondhandseq = s.secondhandseq)) as domainImg
+		FROM SECONDHAND s
+		order by s.secondhandseq desc
+	</select>
+
+	<resultMap type="com.team.bbang.domain.SecondhandDTO" id="secondhandView">
+		<id property="secondhandseq" column="secondhandseq"/>
+		<result property="secondhandseq" column="secondhandseq"></result>		
+		<result property="title" column="title"></result>		
+		<result property="content" column="content"></result>		
+		<result property="regdate" column="regdate"></result>		
+		<result property="memberseq" column="memberseq"></result>	
+		<result property="status" column="status"></result>
+		<result property="address" column="address"></result>	
+		<result property="price" column="price"></result>		
+		
+		<collection property="imgList" resultMap="imgList"></collection>
+	</resultMap>
+
+
+	<resultMap type="com.team.bbang.domain.SecondhandImgDTO" id="imgList">
+		<result property="secondhandimgseq" column="secondhandimgseq"/>
+		<result property="secondhandseq" column="secondhandseq"/>
+		<result property="secondhandimg" column="secondhandimg"/>
+	</resultMap>
+	
+	<select id="getView" resultType="com.team.bbang.domain.SecondhandDTO" resultMap="secondhandView">
+		SELECT sh.secondhandseq,
+	       sh.title,
+	       to_char(regdate, 'yyyy-mm-dd hh:mi') as regdate,
+	       sh.content,
+	       sh.memberseq,
+	       sh.price,
+	       sh.status,
+	       sh.address,
+	       si.*
+				FROM SECONDHAND SH
+					INNER JOIN SECONDHANDIMG SI
+					ON SH.SECONDHANDSEQ = SI.SECONDHANDSEQ
+						WHERE sh.secondhandseq = #{secondhandseq}
+	</select>
+	
+	<insert id="addok">
+	  	INSERT INTO SECONDHAND (SECONDHANDSEQ, TITLE, CONTENT, REGDATE, MEMBERSEQ, PRICE, STATUS, ADDRESS)
+	  	VALUES (SECONDHANDSEQ.NEXTVAL, #{title}, #{content}, DEFAULT, #{memberseq}, #{price}, DEFAULT, #{address})
+	</insert>
+	
+	<insert id="addokImg">
+		<selectKey keyProperty="secondhandseq" order="BEFORE" resultType="String">
+	    	SELECT MAX(SECONDHANDSEQ) FROM SECONDHAND
+  		</selectKey>
+		
+		INSERT INTO SECONDHANDIMG (SECONDHANDIMGSEQ, SECONDHANDSEQ, SECONDHANDIMG) VALUES
+	    (SECONDHANDIMGSEQ.NEXTVAL, ${secondhandseq}, #{secondhandimg})
+	  	
+	</insert>
+	
+	<select id="searchList" resultType="com.team.bbang.domain.SecondhandDTO">
+		SELECT 
+			s.secondhandseq,
+            s.title,
+            s.content,
+            s.memberseq,
+            TRUNC((sysdate - s.regdate) * 24) as regdate,
+            s.price,
+            s.status,
+            s.address,
+			(select nickname from member where memberseq =  s.memberseq) as nickname,
+            (select secondhandimg 
+            from SECONDHANDIMG 
+            where secondhandimgseq = 
+            (select min(secondhandimgseq) from secondhandimg where secondhandseq = s.secondhandseq)) as domainImg
+		FROM SECONDHAND s
+		where 
+		<if test="condition == 1">
+			s.title like '%' || #{word} || '%' 
+		</if>
+		
+		<if test="condition == 2">
+			s.address like '%' || #{word} || '%' 
+		</if> 
+			order by s.secondhandseq desc
+	</select>
+	
+	<update id="edit">
+		UPDATE SECONDHAND SET TITLE = #{title}, CONTENT = #{content}, PRICE = #{price}, STATUS = #{status}, ADDRESS = #{address} WHERE secondhandseq = #{secondhandseq}
+	</update>
+	
+	<insert id="editAddImg">
+		INSERT INTO SECONDHANDIMG (SECONDHANDIMGSEQ, SECONDHANDSEQ, SECONDHANDIMG) VALUES(SECONDHANDIMGSEQ.NEXTVAL, ${secondhandseq}, #{secondhandimg})
+	</insert>
+	
+	<delete id="delImg">
+		DELETE FROM SECONDHANDIMG WHERE SECONDHANDIMGSEQ = #{secondhandimgseq}
+	</delete>
+	
+	<delete id="delSecondhand">
+		DELETE FROM SECONDHAND WHERE SECONDHANDSEQ = #{seq}
+	</delete>
+	
+	<select id="getChatRoom" resultType="com.team.bbang.domain.ChatRoomDTO">
+		SELECT 
+			ch.chatroomseq,
+		    (select nickname from MEMBER where memberseq = ch.bmemberseq) as nickname,
+		    (SELECT COUNT(*) FROM CHATCONTENT CT WHERE CT.CHATROOMSEQ = CH.CHATROOMSEQ
+            AND CT.REGDATE > (SELECT MAX(REGDATE) FROM CHATLOG CL WHERE CL.ISEXIT = <![CDATA['퇴장']]> AND CL.CHATROOMSEQ = CH.CHATROOMSEQ AND CL.MEMBERSEQ = #{memberseq})) AS CNT
+		FROM SECONDHAND SC
+		INNER JOIN CHATROOM CH
+		ON SC.SECONDHANDSEQ = CH.SECONDHANDSEQ
+		WHERE sc.secondhandseq = #{secondhandseq} and sc.memberseq = #{memberseq}
+	</select>
+	
+	<select id="getMyStore" resultType="com.team.bbang.domain.SecondhandDTO">
+		select 
+		    sh.secondhandseq,
+		    TRUNC((sysdate - sh.regdate) * 24) as regdate,
+		    sh.title,
+		    sh.price,
+		    (select secondhandimg 
+		            from SECONDHANDIMG 
+		            where secondhandimgseq = 
+		            (select min(secondhandimgseq) from secondhandimg sc where sc.secondhandseq = sh.secondhandseq)) as domainImg,
+		    address,
+		    (select nickname from member where memberseq = sh.memberseq) as nickname
+		from SECONDHAND sh
+		where memberseq = #{memberseq}
+		
+	</select>
+</mapper>

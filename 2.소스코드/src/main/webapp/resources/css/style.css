@@ -1,0 +1,242 @@
+body {
+        
+    font-family: 'Jeju Gothic', sans-serif;
+
+}
+  .bi {
+  vertical-align: -.125em;
+  fill: currentColor;
+}
+
+
+.search-container {
+display: flex;
+align-items: center;
+height: 3.7rem;
+box-shadow: 0 2px 5px rgb(182, 182, 182);
+opacity: 0.7;
+}
+
+.search-input {
+outline: none;
+width:400px;
+margin: 0 15px 0 15px;
+padding: 6px;
+border: none;
+border-radius: 5px;
+/* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+transition: transform 0.3s ease-in-out;
+ color: black;
+background-color: #F2E3DB; 입력창의 색상을 변경합니다. */
+
+}
+
+.search-input:hover {
+transform: scale(1.015);
+}
+
+
+.search-button {
+padding: 10px 20px;
+background-color: #9E6F21;
+border: none;
+border-radius: 0 3px 3px 0;
+color: #fff;
+margin-left: 10px;
+margin-bottom: 15px;
+}
+
+.search-icon{
+border: 0;
+font-size: 40px;
+color: rosybrown;
+margin-right: 15px;
+}
+
+#s-type{
+margin-left: 15px;
+border: none;
+outline: none;
+width: 78px;
+} 
+
+.s-icon{
+outline: none;
+border: none; 
+background-color: #FFFFFF; 
+padding: 0; 
+border-radius: 20px;
+}
+
+.s-icon:hover{
+transform: scale(1.01);
+
+}
+
+.nav > .nav-item{
+font-size: 16px;
+}
+
+/* Select box 스타일 */
+select {
+appearance: none;
+-webkit-appearance: none;
+padding: 8px;
+width: 120px;
+border: none;
+color: #333;
+font-size: 16px;
+border-radius: 4px;
+cursor: pointer;
+/* background: #ffffff url('/프로젝트/arrow.png') no-repeat ; */
+
+}
+
+
+/* Select box를 선택했을 때의 스타일 */
+select:focus {
+outline: none;
+box-shadow: 0 0 0 2px #9E6F21;
+}
+
+hr {
+  border: 1px solid #9E6F21;
+  margin: 3px;
+}
+.bd-sidebar {
+position: sticky;
+top: 1rem;
+z-index: 1000;
+height: 300px;
+/* border-right: 1px solid rgba(0,0,0,.1); */
+overflow-y: auto;
+min-width: 160px;
+max-width: 220px;
+}
+.bd-sidebar .nav {
+display: block;
+}
+.bd-sidebar .nav>li>a {
+display: block;
+padding: .25rem 1.5rem;
+font-size: 90%;
+}
+.content {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+
+  padding: 30px;
+  font-size: 50px;
+}
+
+
+.navi li {
+  width: 200px;
+  color: #002B5B;
+}
+
+.navi li a {
+  font-weight: center;
+}
+
+.navi {
+  margin-left: 50px;
+}
+
+.nav-item {
+  list-style-type: none;
+}
+
+.navi .nav-link {
+  color: #002B5B;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  /* background-color: #E0E0E0; */
+  margin-bottom: 10px;
+}
+
+.nav-link:hover {
+  background-color: #f0e7d6;
+}
+
+.nav-link.active {
+  font-weight: bold;
+}
+
+.nav-link.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.bd-sidebar li {
+  text-align: center;
+}
+
+.form-content{
+
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.img-cart{
+
+margin-left: 20px;
+
+}
+
+#aside1 {
+
+position: sticky;
+height: 400px;
+top: 1rem;
+left: 0px;
+margin-left: 40px;
+}
+
+#main {
+--bs-gutter-x: 1.5rem;
+--bs-gutter-y: 0;
+padding-right: calc(var(--bs-gutter-x) * 0.5);
+padding-left: calc(var(--bs-gutter-x) * 0.5);
+margin-right: auto;
+margin-left: auto;
+}
+
+a {
+	color: #333;
+	text-decoration: none;
+}
+
+
+	@font-face {
+	    font-family: 'IM_Hyemin-Bold';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/IM_Hyemin-Bold.woff2') format('woff');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+	@font-face {
+	     font-family: 'NIXGONM-Vb';
+	     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/NIXGONM-Vb.woff') format('woff');
+	     font-weight: bolder;
+	     font-style: normal;
+	}
+	@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+	@font-face {
+	    font-family: 'SUIT-Regular';
+	    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+	body {
+	    font-family: 'SUIT-Regular';
+	}
+	

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/headers/">
+    <link href="/asdf.css" rel="stylesheet">
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        
+    body {
+        
+          font-family: 'Jeju Gothic', sans-serif;
+
+    }
+        .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      
+      .search-container {
+      display: flex;
+      align-items: center;
+      height: 3.7rem;
+      box-shadow: 0 2px 5px rgb(182, 182, 182);
+      opacity: 0.7;
+    }
+
+    .search-input {
+      outline: none;
+      width:400px;
+      margin: 0 15px 0 15px;
+      padding: 6px;
+      border: none;
+      border-radius: 5px;
+      /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+      transition: transform 0.3s ease-in-out;
+       color: black;
+      background-color: #F2E3DB; 입력창의 색상을 변경합니다. */
+
+    }
+
+    .search-input:hover {
+      transform: scale(1.015);
+    }
+    
+
+    .search-button {
+      padding: 10px 20px;
+      background-color: #9E6F21;
+      border: none;
+      border-radius: 0 3px 3px 0;
+      color: #fff;
+      margin-left: 10px;
+      margin-bottom: 15px;
+    }
+
+    .search-icon{
+      border: 0;
+      font-size: 40px;
+      color: rosybrown;
+      margin-right: 15px;
+    }
+
+    #s-type{
+      margin-left: 15px;
+      border: none;
+      outline: none;
+      width: 78px;
+    } 
+
+    .s-icon{
+      outline: none;
+      border: none; 
+      background-color: #FFFFFF; 
+      padding: 0; 
+      border-radius: 20px;
+    }
+
+    .s-icon:hover{
+    transform: scale(1.01);
+
+    }
+
+.nav > .nav-item{
+    font-size: 16px;
+}
+
+/* Select box 스타일 */
+select {
+appearance: none;
+-webkit-appearance: none;
+padding: 8px;
+width: 120px;
+border: none;
+color: #333;
+font-size: 16px;
+border-radius: 4px;
+cursor: pointer;
+/* background: #ffffff url('/프로젝트/arrow.png') no-repeat ; */
+
+}
+
+
+/* Select box를 선택했을 때의 스타일 */
+select:focus {
+outline: none;
+box-shadow: 0 0 0 2px #9E6F21;
+}
+
+    hr {
+        border: 1px solid #9E6F21;
+        margin: 3px;
+    }
+    .bd-sidebar {
+    position: sticky;
+    top: 4rem;
+    z-index: 1000;
+    height: calc(100vh - 4rem);
+    /* border-right: 1px solid rgba(0,0,0,.1); */
+    overflow-y: auto;
+    min-width: 160px;
+    max-width: 220px;
+    }
+    .bd-sidebar .nav {
+    display: block;
+    }
+    .bd-sidebar .nav>li>a {
+    display: block;
+    padding: .25rem 1.5rem;
+    font-size: 90%;
+    }
+    .content {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .icon {
+
+        padding: 30px;
+        font-size: 50px;
+    }
+
+    
+    .navi li {
+        width: 200px;
+        color: #002B5B;
+    }
+    
+    .navi li a {
+        font-weight: center;
+    }
+
+    .navi {
+        margin-left: 50px;
+    }
+
+    .nav-item {
+        list-style-type: none;
+    }
+
+    .navi .nav-link {
+        color: #002B5B;
+        text-decoration: none;
+        text-align: center;
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        /* background-color: #E0E0E0; */
+        margin-bottom: 10px;
+    }
+
+    .nav-link:hover {
+        background-color: #f0e7d6;
+    }
+
+    .nav-link.active {
+        font-weight: bold;
+    }
+
+    .nav-link.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .bd-sidebar li {
+
+        text-align: center;
+    }
+
+    .form-content{
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+
+    .img-cart{
+
+      margin-left: 20px;
+
+    }
+
+    #aside1 {
+
+      position: sticky;
+      height: calc(100vh - 4rem);
+      top: 4rem;
+      left: 0px;
+    }
+
+    #main {
+      --bs-gutter-x: 1.5rem;
+      --bs-gutter-y: 0;
+      padding-right: calc(var(--bs-gutter-x) * 0.5);
+      padding-left: calc(var(--bs-gutter-x) * 0.5);
+      margin-right: auto;
+      margin-left: auto;
+    }
+    
+
+    </style>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <!--  -->
+
+    <header class="header">
+        <div class="container-fluid" style="" >
+            <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
+              <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" style="margin-left: 150px;">
+                  <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+              </a>
+  
+              <ul class="nav" style="font-size: 14px; margin-right: 20px;">
+                  <li class="nav-item"><a href="#" class="nav-link active" style="color: #002B5B;" aria-current="page">홈</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link" style="color: #002B5B;">로그인</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link" style="color: #002B5B;">회원가입</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link" style="color: #002B5B;">마이페이지</a></li>
+                  <li class="nav-item"><a href="#" class="nav-link" style="color: #002B5B;">About</a></li>
+              </ul>
+
+     <div class="content"> 
+           <div class="icon width: 300px;">
+                    <img src="/bb1.png" style="height:100px; object-fit: cover; margin-right: 10px;">
+              </div>
+              <div class="search-container" style="justify-content: center; border: 1px solid #9E6F21; border-radius: 18px;">
+                <form class="form-content">
+                <div class="search-arrow">
+                    <select title="검색유형" id="s-type">
+                        <option value="total">통합검색</option>
+                        <option value="title">제목</option>
+                        <option value="auth">저자</option>
+                    </select>
+                    <span class="material-symbols-outlined">
+                        arrow_drop_down
+                    </span>
+                </div>
+                    <input type="text" class="search-input">
+                    <button class="s-icon">
+                    <span class="material-symbols-outlined search-icon">
+                      search
+                    </span>
+                  </button>
+              </div>
+            </form>
+            <div class="img-cart" style="width: 230px;">
+              <span class="material-symbols-outlined icon" style="color: #FF9EAA; ">shopping_cart</span>
+              <span class="material-symbols-outlined icon" style="color: #22A699;">account_circle</span>
+            </div>
+        </div>
+
+            </header>
+            </div>
+
+          <!-- 내비게이션 바 -->
+          <ul class="nav justify-content-center navi" style="">
+              <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">도서</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#" >북유럽</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#">헌책방</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">이벤트</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">매장안내</a>
+              </li>
+          </ul>
+        </header>  
+        
+
+        <hr>
+    
+    <!-- 목록 -->
+    
+    <main class="py-md-3 pl-md-5" style="" >
+      <div class="" id="main" style="margin-top: 60px; margin-left: 100px;">
+        <div class="row ">
+          <div class="col-3 bd-sidebar">
+            <ul class="nav">
+              <li><h3>목록목록</h3></li>
+              <li><a>Side 1</a></li>
+              <li><a>Side 2</a></li>
+              <li><a>Side 3</a></li>
+              <li><a>Side 4</a></li>
+              <li><a>Side 5</a></li>
+              <li><a>Side 6</a></li>
+            </ul>
+            <br>
+          </div>
+          <div class="col-8" style=" max-width: 1100px; min-width: 600px;" >
+              <img src="/event.jpeg" alt="" style="height:500px; object-fit: cover;">
+              <img src="/event.jpeg" alt="" style="height:500px; object-fit: cover;">
+              <img src="/event.jpeg" alt="" style="height:500px; object-fit: cover;">
+              <img src="/event.jpeg" alt="" style="height:500px; object-fit: cover;">
+              <img src="/event.jpeg" alt="" style="height:500px; object-fit: cover;">
+              <img src="/event.jpeg" alt="" style="height:500px; object-fit: cover;">
+            <h2></h2>
+            <div style="overflow-wrap: break-word;">asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf</div>
+          </div>
+          <div class="col-1" style="overflow-wrap: break-word;" id="aside1" >
+            <table style="border: 2px solid #EEE; width: 150px; height: 400px; background-color: #DDD;">
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </table>
+         </div>
+        </div>
+    </div> 
+  </main>
+      <hr>
+
+      <div class="container-fluid" style="background-color: #f0e7d6; bottom: 0;">
+        <div class="www" style="height: 270px; bottom: 0px;">
+          <footer class="" style="height: 250px; padding-top: 2%; padding-bottom: 2%;">
+              <div class="row" style="width: 1200px; margin-left: 15%; margin-right: 15%;">
+                <div class="col-6 col-md-10 mb-3">
+                    <img src="/bb1.png" style= "height:50px; object-fit: cover">
+                    <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">회사소개&nbsp;&nbsp;이용약관&nbsp;&nbsp;개인정보처리방침&nbsp;&nbsp;청소년보호정책&nbsp;&nbsp;대량주문안내&nbsp;&nbsp;협력사여러분&nbsp;&nbsp;채용정보&nbsp;&nbsp;광고소개</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">대표이사 : 유동현 서울특별시 종로구 종로 1 사업자등록번호 : 102-81-11670</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">대표전화 : 1544-1900 | FAX : 0502-987-5711(지역번호 공통) 서울특별시 통신판매업신고번호 : 제 653호 사업자정보확인</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">© KYOBO BOOK CENTRE</a></li>
+                    <li class="nav-item mb-7"><a href="#" class="nav-link p-0 text-muted"></a><small>&copy;&nbsp;2023&nbsp;JDSC&nbsp;F7Company,&nbsp;Inc.&nbsp;All&nbsp;rights&nbsp;reserved.</small></li>
+                    </ul>
+                    
+                </div>
+              
+                <div class="col-md-2  mb-3">
+                  <a href="https://instagram.com/book._bbang?igshid=MmIzYWVlNDQ5Yg=="><i class="bi bi-instagram" style="font-size: 2rem;"></i></a>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="https://www.youtube.com/@amazingc0met"><i class="bi bi-youtube" style="font-size: 2rem;"></i></a>
+                </div>
+              </div> 
+          </footer>
+        </div>
+      </div>
+    
+    
+    
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+    
+    </script>
+</body>
+</html>

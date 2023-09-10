@@ -1,0 +1,123 @@
+
+.bookListAll {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.quHeader {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 2px;
+    width: 80px;
+    border: 1px solid #a48a5a;
+    color: #333;
+    font-size: 16px;
+    border-radius: 4px;
+    /* cursor: pointer; */
+}
+
+.btns {
+    align-self: self-end;
+}
+
+.bookListAll {
+    margin-bottom: 50px;
+}
+
+
+.quHeader {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.qButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bookPaging {
+    display: flex;
+    justify-content: center;
+}
+
+.bookPaging button {
+    font-size: 13px;
+}
+
+.tblQ th {
+    width: 150px;
+    text-align-last: center;    
+    border-right: 1px solid #eaeaea;
+}
+
+.tblQ td {
+    padding: 10px;
+}
+
+.tblQ {
+    margin-bottom: 20px;
+}
+
+.tblQ textarea {
+    height: 250px;
+}
+
+.reply th {
+    width: 150px;
+    text-align-last: center;    
+    border-right: 1px solid #eaeaea;
+}
+
+.reply td {
+    padding: 10px;
+}
+
+.reply textarea {
+    min-height: 150px;
+}
+
+.reply {
+    min-height: 100px;
+}
+
+.qContent {
+    height: 250px;
+}
+
+hr {
+    margin: 0px;
+}
+
+
+
+.replyAdd th {
+    width: 150px;
+    text-align-last: center;    
+    border-right: 1px solid #eaeaea;
+}
+
+.replyAdd td {
+}
+
+.replyAdd {
+    min-height: 50px;
+}
+
+.replyAdd input[type=text] {
+    width: 100%;
+    height: 40px;
+}
+
+.replyWrite {
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    padding: 0px 10px;
+    margin: 0px 5px;
+}

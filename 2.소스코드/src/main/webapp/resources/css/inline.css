@@ -1,0 +1,136 @@
+.header-nav {
+    font-size: 14px; 
+    margin-right: 20px;
+}
+
+.header-nav >li> a {
+    color: #002B5B;
+}
+
+.main-logo {
+    height:100px; 
+    object-fit: cover; 
+    margin-right: 10px;
+}
+
+.search-box1 {
+    justify-content: center; 
+    border: 1px solid #9E6F21; 
+    border-radius: 18px;
+}
+
+.header-icon {
+    width: 230px;
+}
+
+.shopping-color {
+    color: #FF9EAA; 
+}
+
+.user-color {
+    color: #22A699;
+}
+
+
+
+.main-margin {
+    margin-top: 60px;
+    margin-left: 100px;
+}
+
+.main-width {
+    max-width: 1100px; 
+    min-width: 600px; 
+    margin-left: 70px;
+}
+
+.over-wrap {
+    overflow-wrap: break-word;
+}
+
+.right-sidebar {
+    border: 2px solid #EEE; 
+    width: 150px; 
+    height: 400px; 
+    background-color: #DDD;
+}
+
+.footer-div {
+    background-color: #f0e7d6; 
+    bottom: 0;
+}
+
+.footer1 {
+    height: 270px; bottom: 0px;
+}
+
+.footer2 {
+    height: 250px; 
+    padding-top: 2%; 
+    padding-bottom: 2%;
+}
+
+.footer3 {
+    width: 1200px; 
+    margin-left: 15%; 
+    margin-right: 15%;
+}
+
+.footer-img{
+    height: 50px; 
+    object-fit: cover
+}
+
+.footer-icon {
+    font-size: 2rem;
+}
+
+
+/* 헤더 ul태그 css */
+.SMN_effect-50 a {
+    color: #A87928;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.7s;
+    transition: all 0.7s;
+    position: relative;
+    /* border: 1px solid rgba(255, 255, 255, 0.5); */
+  }
+  
+  .SMN_effect-50 a:hover {
+    background-color: #A87928;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    opacity: 0.5;
+  }
+
+
+  .menu a {
+    color:#2a2a2a;
+    /* font-family: Lato; */
+    font-size: 12pt;
+    font-weight: 400;
+    padding: 10px 15px;
+    /**/
+    position: relative;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .columns > ul {
+    display: flex;
+    justify-content: end;
+  }
+
+  .side_title:hover{
+    transform: scale(1.075);
+   
+  }
+
+  .side_title{
+    color: #000;
+    text-decoration: none;
+    
+  }

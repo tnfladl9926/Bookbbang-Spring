@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.team.bbang.mapper.ChatMapper">
+	
+	<select id="getChat" resultType="com.team.bbang.domain.ChatContentDTO">
+		SELECT 
+		    (select nickname from MEMBER where memberseq = ct.memberseq) as nickname,
+		    (select memberseq from MEMBER where memberseq = ct.memberseq) as memberseq,
+		    ct.field,
+		    to_char(CT.REGDATE, 'hh24:mi') as regdate
+		FROM SECONDHAND SC
+		INNER JOIN CHATROOM CR
+		ON SC.SECONDHANDSEQ = CR.SECONDHANDSEQ
+		INNER JOIN CHATCONTENT CT
+		ON CR.CHATROOMSEQ = CT.CHATROOMSEQ
+		WHERE CR.CHATROOMSEQ = #{chatroomseq}
+		order by ct.regdate asc	
+		
+		
+	</select>
+	
+	<select id="getOtherName" resultType="String">
+		SELECT 
+		    (select nickname from MEMBER where memberseq = ch.bmemberseq) as nickname
+		FROM SECONDHAND SC
+		INNER JOIN CHATROOM CH
+		ON SC.SECONDHANDSEQ = CH.SECONDHANDSEQ
+		WHERE ch.chatroomseq = ${chatroomseq}
+		
+	</select>
+	
+	<insert id="inLog">
+		INSERT INTO CHATLOG VALUES(CHATLOGSEQ.NEXTVAL, #{chatroomseq}, #{memberseq}, default,  <![CDATA['입장']]>)
+	</insert>
+	
+	<insert id="outLog">
+		INSERT INTO CHATLOG VALUES(CHATLOGSEQ.NEXTVAL, #{chatroomseq}, #{memberseq}, default,  <![CDATA['퇴장']]>)
+	</insert>
+	
+	<insert id="insertChat">
+		INSERT INTO CHATCONTENT VALUES(CHATCONTENTSEQ.NEXTVAL, #{field}, default , #{memberseq}, #{chatroomseq})
+	</insert>
+	
+	<select id="checkRoom" resultType="String">
+		SELECT 
+		    chatroomseq
+		FROM SECONDHAND SC
+		INNER JOIN CHATROOM CR
+		ON SC.SECONDHANDSEQ = CR.SECONDHANDSEQ
+		WHERE CR.BMEMBERSEQ = ${bmemberseq} and CR.SECONDHANDSEQ = ${secondhandseq}
+	</select>
+	
+	<insert id="createChatroom">
+		<selectKey resultType="String" order="AFTER" keyProperty="chatroomseq">
+			SELECT max(chatroomseq) from chatroom
+		</selectKey>
+		
+		INSERT INTO CHATROOM VALUES(CHATROOMSEQ.NEXTVAL, #{secondhandseq}, #{smemberseq}, #{bmemberseq})
+	</insert>
+	
+	<select id="getMaxseq" resultType="String">
+		SELECT MAX(CHATROOMSEQ) FROM CHATROOM
+	</select>
+	
+	<select id="getSeller" resultType="String">
+		SELECT smemberseq FROM chatroom where chatroomseq = #{memberseq}
+	</select>
+	
+	<select id="getSellerName" resultType="String">
+		SELECT 
+	        DISTINCT NICKNAME
+			FROM SECONDHAND SC
+			INNER JOIN MEMBER M
+	        ON SC.MEMBERSEQ = M.MEMBERSEQ
+	        INNER JOIN CHATROOM CH
+	        ON CH.SECONDHANDSEQ = SC.SECONDHANDSEQ
+	        WHERE CH.CHATROOMSEQ = #{chatroomseq}
+	</select>
+	
+	<insert id="test">
+		insert into chatLog values(CHATLOGSEQ.NEXTVAL, #{chatroomseq}, #{smemberseq}, default,  <![CDATA['퇴장']]>)
+	</insert>
+</mapper>

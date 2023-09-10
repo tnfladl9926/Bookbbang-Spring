@@ -1,0 +1,161 @@
+bookListAll {
+    /* width: 900px; */
+    /* border: 1px solid gray; */
+    /* height: 1000px; */
+    margin-bottom: 50px;
+}
+
+li {
+    list-style: none;
+}
+
+.bookul{
+    padding-left: 0px;
+}
+
+.cartHeader {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.form-check {
+    margin-top: 20px;
+}
+
+.bookChk {
+    width: 40px;
+}
+
+.cartImg img {
+    width: 80px;
+}
+
+.bookCont .bookInfo {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    vertical-align: top;
+}
+
+.bookName {
+    margin-top: 7px;
+}
+
+.sdgj {
+    font-size: 11px;
+    height: 18px;
+    padding: 0 4px;
+    border: 1px solid #d8d8d8;
+    color: #666;
+}
+
+.bookSale {
+    font-size: 12px;
+    color: #333;
+    margin-top: 5px;
+}
+
+.bookNum input[type=number] {
+    width: 36px;
+    display: block;
+    border: solid 1px #ebebeb;
+}
+
+.bookPayment {
+    width: 120px;
+}
+
+.bookShip {
+    width: 130px;
+    font-size: 14px;
+}
+
+.orderButton {
+    width: 125px;
+    text-align: center;
+}
+
+.orderButton .btn {
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.bookCont tfoot {
+    background-color: #f8f8f8;
+    border-bottom: solid 1px #ebebeb;
+    border-top: solid 1px #ebebeb;
+    text-align-last: center;
+    color: #333;
+    font-size: 12px;
+}
+
+.orderFoot {
+    padding-right: 20px;
+    text-align-last: right;
+    padding: 10px 19px 10px;
+}
+
+.bottomButton {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.bottomButton button {
+    font-size: 17px;
+    margin-bottom: 7px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 7px;
+}
+
+
+.bookCont {
+    width: 950px;
+    margin-top: 20px;
+}
+
+.nextbookCont {
+    width: 950px;
+    margin-top: 20px;
+}
+
+.bookCont thead {
+    background-color: #f8f8f8;
+    border-bottom: solid 1px #ebebeb;
+    border-top: solid 1px #ebebeb;
+    text-align-last: center;
+    color: #333;
+    font-size: 12px;
+}
+
+.bookCont tbody {
+    /* border-bottom: solid 1px #ebebeb; */
+}
+
+.bookCont tbody td {
+    padding: 10px 35px;
+    text-align: center;
+}
+
+.bookCont img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.nextbookCont img {
+    width: 160px;
+}
+
+
+  .miniImg img {
+    width: 120px;
+  }
+  
+  
+a {
+	color: #333;
+	text-decoration: none;
+}
+.writer {
+	color: gray;
+}

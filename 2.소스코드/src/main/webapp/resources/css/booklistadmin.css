@@ -1,0 +1,43 @@
+
+.bookListAll {
+    /* width: 900px; */
+    /* border: 1px solid gray; */
+    /* height: 1000px; */
+    margin-bottom: 50px;
+}
+
+
+.quHeader {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.qButton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.bookPaging {
+    display: flex;
+    justify-content: center;
+}
+
+.bookPaging button {
+    font-size: 13px;
+}
+
+.table th {
+	text-align: center;
+}
+.table td {
+	text-align: center;
+}
+.table .title {
+	text-align: left;
+}
+
+
+a {
+	color: #333;
+	text-decoration: none;
+}
