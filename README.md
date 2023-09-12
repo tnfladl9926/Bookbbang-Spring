@@ -54,7 +54,7 @@ JAVA와 스프링 MVC를 기반으로 구현한 프로젝트입니다.
 #### 매장 안내 [상세보기-WIKI이동](https://github.com/tnfladl9926/Bookbbang-spring/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EB%A7%A4%EC%9E%A5-%EC%95%88%EB%82%B4))
   - 카카오 지도 API 사용
 
-#### 도서 구매 [상세보기-WIKI이동](https://github.com/tnfladl9926/Bookbbang-spring/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EB%8F%84%EC%84%9C-%EA%B5%AC%EB%A7%A4))
+#### 도서 구매
   - 도서 선택
   - 장바구니
   - 배송지 입력
@@ -62,7 +62,7 @@ JAVA와 스프링 MVC를 기반으로 구현한 프로젝트입니다.
   - 결제
   - 구매 완료
 
-#### 메인페이지 [상세보기-WIKI이동](https://github.com/tnfladl9926/Bookbbang-spring/wiki/%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5-%EC%86%8C%EA%B0%9C(%EB%A9%94%EC%9D%B8-%ED%8E%98%EC%9D%B4%EC%A7%80))
+#### 메인페이지
   - 분야별 신작, 베스트 셀러 등 조회
 
 ## :heartpulse: 느낀점  
